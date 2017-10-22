@@ -10,10 +10,11 @@ export default createStore(
   }),
   applyMiddleware(thunk)
 )
+
 const grab = (name, action) =>
   compose(prop(name), pick([name]), prop('payload'))(action)
 
-function game(state = { wins: 0 }, action) {
+function game(state = { wins: 0, status: 'OFF' }, action) {
   return cond([
     [equals('SET_GAME'), () => action.payload],
     [equals('RESET'), () => grab('game', action)],

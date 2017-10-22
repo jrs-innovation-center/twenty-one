@@ -4,3 +4,7 @@
   padding-left: 5px;
   padding-right: 5px;
 }
+
+body {
+  background-color: rgba(0, 0, 0, 0.6);
+}

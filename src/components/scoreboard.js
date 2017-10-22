@@ -1,15 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { pick } from 'ramda'
 
 const Scoreboard = props => {
   return (
-    <div>
-      <span className="pl4">Status: {props.game.status}</span>
-      <span className="pl4">Wins: {props.game.wins}</span>
+    <div className="flex justify-center">
+      <span className="pl4 tracked ttu">Status: {props.game.status}</span>
+      <span className="pl4 tracked ttu">Wins: {props.game.wins}</span>
     </div>
   )
 }
 
-const connector = connect(pick(['game']))
-export default connector(Scoreboard)
+export default Scoreboard
