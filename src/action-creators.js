@@ -53,7 +53,7 @@ export const stay = async (dispatch, getState) => {
   dispatch({ type: 'SET_GAME', payload: state.game })
 }
 
-export const reset = async (dispatch, getState) => {
+export const newgame = async (dispatch, getState) => {
   // need to clone to force immutability
   const state = clone(store.getState())
   // clear hands
@@ -74,7 +74,7 @@ export const reset = async (dispatch, getState) => {
   state.game.player = getScore(state.player)
   state.game.dealer = getScore(state.dealer)
 
-  dispatch({ type: 'RESET', payload: state })
+  dispatch({ type: 'NEWGAME', payload: state })
 }
 
 // export const shuffle = async () => {

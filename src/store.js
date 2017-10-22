@@ -17,7 +17,7 @@ const grab = (name, action) =>
 function game(state = { wins: 0, status: 'OFF' }, action) {
   return cond([
     [equals('SET_GAME'), () => action.payload],
-    [equals('RESET'), () => grab('game', action)],
+    [equals('NEWGAME'), () => grab('game', action)],
     [T, always(state)]
   ])(action.type)
 }
@@ -25,7 +25,7 @@ function game(state = { wins: 0, status: 'OFF' }, action) {
 function player(state = [], action) {
   return cond([
     [equals('SET_PLAYER'), () => action.payload],
-    [equals('RESET'), () => grab('player', action)],
+    [equals('NEWGAME'), () => grab('player', action)],
     [T, always(state)]
   ])(action.type)
 }
@@ -33,7 +33,7 @@ function player(state = [], action) {
 function dealer(state = [], action) {
   return cond([
     [equals('SET_DEALER'), () => action.payload],
-    [equals('RESET'), () => grab('dealer', action)],
+    [equals('NEWGAME'), () => grab('dealer', action)],
     [T, always(state)]
   ])(action.type)
 }

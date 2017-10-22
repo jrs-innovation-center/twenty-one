@@ -3,11 +3,14 @@ import Button from './button'
 
 const Controls = props => (
   <div className="flex items-center justify-center mt4">
-    <Button onClick={props.game.status === 'ON' && props.hit}>Hit</Button>
-    <Button onClick={props.game.status === 'ON' && props.stay}>Stay</Button>
-    <Button onClick={props.reset}>
-      {props.game.status === 'OFF' ? 'Start' : 'Reset'}
-    </Button>
+    {props.game.status !== 'ON' ? (
+      <Button onClick={props.newgame}>New Game</Button>
+    ) : (
+      [
+        <Button onClick={props.game.status === 'ON' && props.hit}>Hit</Button>,
+        <Button onClick={props.game.status === 'ON' && props.stay}>Stay</Button>
+      ]
+    )}
   </div>
 )
 

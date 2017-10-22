@@ -5,7 +5,7 @@ import Controls from './components/controls'
 
 import { connect } from 'react-redux'
 import { pick, identity } from 'ramda'
-import { hit, stay, reset } from './action-creators'
+import { hit, stay, newgame } from './action-creators'
 
 export const DealersHand = connect(pick(['dealer', 'game']))(Dealer)
 export const PlayersHand = connect(pick(['player', 'game']))(Player)
@@ -16,6 +16,6 @@ function mapActionsToProps(dispatch) {
   return {
     hit: e => dispatch(hit),
     stay: e => dispatch(stay),
-    reset: e => dispatch(reset)
+    newgame: e => dispatch(newgame)
   }
 }
