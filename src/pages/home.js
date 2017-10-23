@@ -3,7 +3,8 @@ import {
   ControlsContainer,
   ScoreboardContainer,
   DealersHand,
-  PlayersHand
+  PlayersHand,
+  HeaderContainer
 } from '../containers'
 
 import Header from '../components/header'
@@ -11,7 +12,7 @@ import Layout from '../components/layout'
 
 export default () => (
   <Layout>
-    <Header />
+    <HeaderContainer />
     <PlayersHand />
     <DealersHand />
     <ScoreboardContainer />
