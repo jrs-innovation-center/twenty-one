@@ -2,17 +2,19 @@ import React from 'react'
 import Card from './card'
 import Placeholder from './placeholder'
 import Back from './back'
+import { equals, map, contains, not, head } from 'ramda'
 
-const Dealer = props => {
+const Dealer = ({ dealer, game }) => {
+  const showCard = card => <Card {...card} />
+  const gameOver = not(contains(game.status, ['ON', 'OFF']))
+  const isPlaying = equals('ON', game.status)
   return (
     <div>
-      {props.game.status === 'ON'
-        ? [<Card {...props.dealer[0]} />, <Back />]
-        : props.dealer.map(card => <Card {...card} />)}
+      {isPlaying
+        ? [<Card {...head(dealer)} />, <Back />]
+        : map(showCard, dealer)}
 
-      {['OFF', 'ON'].indexOf(props.game.status) === -1 && (
-        <Placeholder score={props.game.dealer} />
-      )}
+      {gameOver && <Placeholder score={game.dealer} />}
     </div>
   )
 }
