@@ -14,7 +14,7 @@ export default createStore(
 const grab = (name, action) =>
   compose(prop(name), pick([name]), prop('payload'))(action)
 
-function game(state = { wins: 0, status: 'OFF' }, action) {
+function game(state = { count: 0, wins: 0, status: 'OFF' }, action) {
   return cond([
     [equals('SET_GAME'), () => action.payload],
     [equals('NEWGAME'), () => grab('game', action)],

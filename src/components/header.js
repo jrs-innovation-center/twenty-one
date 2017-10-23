@@ -7,7 +7,7 @@ export default props => (
     {/*
     <TwitterButton
       text={`I won ${props.game
-        .wins} percent of the time playing https://21.now.sh @AllThingsOpen 2017`}
+        .wins} percent of the time playing https://21.now.sh @AllThingsOpen 2017 /cc @twilson63`}
     />
     */}
   </div>

@@ -69,7 +69,7 @@ export const newgame = async (dispatch, getState) => {
   state.player = append(await drawCard(state.game.deck), state.player)
   // deal card to dealer
   state.dealer = append(await drawCard(state.game.deck), state.dealer)
-  // console.log(state)
+
   state.game.status = 'ON'
   state.game.player = getScore(state.player)
   state.game.dealer = getScore(state.dealer)
